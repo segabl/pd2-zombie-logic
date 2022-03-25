@@ -1,0 +1,2 @@
+# Zombie Logic
+This is a resource that implements a zombie like logic (melee only) for enemies. The scripts inside this resource have a test setup that replaces every enemy logic with the zombie one but it can easily be set up to only affect certain enemy types.

@@ -1,0 +1,13 @@
+{
+	"name" : "Zombie Logic",
+	"description" : "Zombie logic (melee only) for enemies",
+	"author" : "Hoppip",
+	"contact" : "Hoppip#1630",
+	"color" : "0.043 0.808 0.6",
+	"version" : "1.5",
+	"hooks" : [
+		{ "hook_id" : "lib/units/enemies/cop/copbase", "script_path" : "zombiemeleeweapons.lua" },
+		{ "hook_id" : "lib/units/enemies/cop/copbrain", "script_path" : "zombielogicattack.lua" },
+		{ "hook_id" : "lib/units/enemies/cop/copmovement", "script_path" : "zombieactionshoot.lua" }
+	]
+}
