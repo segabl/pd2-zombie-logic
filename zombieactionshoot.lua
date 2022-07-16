@@ -127,7 +127,7 @@ end
 function ZombieActionShoot:anim_clbk_melee_strike()
 	self._melee_timeout_t = TimerManager:game():time() + (self._w_usage_tweak.melee_retry_delay and math.lerp(self._w_usage_tweak.melee_retry_delay[1], self._w_usage_tweak.melee_retry_delay[2], self:_pseudorandom()) or 1) - 1
 
-	if not self._attention or not alive(self._attention.unit) or not self._attention.unit:character_damage() then
+	if not self._attention or not alive(self._attention.unit) or not self._attention.unit:character_damage() or not self._attention.unit:character_damage().damage_melee then
 		return
 	end
 
@@ -140,10 +140,10 @@ function ZombieActionShoot:anim_clbk_melee_strike()
 
 	if target_dis > max_dis then
 		if melee_data and melee_data.sound_miss then
-			self._attention.unit:sound():play(melee_data.sound_miss, nil, nil)
+			self._unit:sound():play(melee_data.sound_miss, nil, nil)
 		end
 		return
-	else
+	elseif self._attention.unit:sound() then
 		if melee_data and melee_data.sound_hit then
 			self._attention.unit:sound():play(melee_data.sound_hit, nil, nil)
 		else
